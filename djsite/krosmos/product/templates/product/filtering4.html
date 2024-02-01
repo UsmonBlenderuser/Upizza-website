@@ -1,0 +1,39 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container marketing">
+<form method="post" action="{% url 'homepage' '-time_create' 40 %}">
+    {% csrf_token %}
+    <!--Naming-->
+    <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="fw-light">Фильтры</h3>
+      </div>
+    </div>
+  </section>
+
+    <!-- Material -->
+    <section class="py-5 text-top container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="fw-light">Maтериал обуви</h3>
+      </div>
+    </div>
+        {% for item in materials %}
+            <div>
+                <input type="checkbox" name="{{ item.name }}" value="{{ item.slug }}" class="form-check-input">
+                <label class="form-check-label">{{ item.name }}</label>
+            </div>
+        {% endfor %}
+    </section>
+
+    <button type="submit" class="btn btn-success"> Посмотреть </button>
+    <a class="btn btn-danger" href="{% url 'materials' %}"> Сбросить </a>
+    </form>
+</div>
+
+{% endblock %}

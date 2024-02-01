@@ -1,0 +1,35 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+        <section class="py-5">
+            <div class="grider">
+                <!--Left sibar--!>
+            <div class="container px-4 px-lg-5 mt-5">
+
+            </div>
+                <div class="container px-4 px-lg-5 mt-5">
+                    <div class="row featurette">
+                      <div class="col-md-7">
+                          <ul>
+                          <ul>
+                          <h4 class="featurette-heading fw-normal lh-1">Мы находимся в городе Душанбе, Испечак 2. <span class="text-body-secondary">Смотрите по карте.</span></h4>
+                        <p class="lead">Самые вкусные пиццы в Таджикистане у нас. Мы Upizza у нас доставка бесплатная. Доставим ваш заказ меньше чем за час после приготовления</p>
+                        <p class="lead">Тел: +992 983 333 492</p>
+                              </ul>
+                              </ul>
+                      </div>
+                      <div class="col-md-5">
+                <!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>--!>
+                        <img src="{% static 'map.png' %}" width="325" height="300"></img>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock %}

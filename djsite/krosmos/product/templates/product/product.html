@@ -1,0 +1,204 @@
+{% extends 'product/base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+<!--
+
+  <div class="container marketing">
+
+    &lt;!&ndash; START THE FEATURETTES &ndash;&gt;
+
+    <br class="featurette-divider">
+    <br class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">{{ product.title }}.<span class="text-body-secondary"> {{ product.sale_price }} Сом</span></h2>
+        <p class="lead">{{ product.text }}</p>
+      </div>
+      <div class="col-md-5">
+        <img src="{{ product.image.url }}" width="400" height="300">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
+        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
+        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    &lt;!&ndash; /END THE FEATURETTES &ndash;&gt;
+
+  </div>&lt;!&ndash; /.container &ndash;&gt;
+-->
+
+
+
+  <div class="container marketing">
+    <br>
+    <!-- You can now combine a row and column if you just need a 12 column row -->
+    <!--<div class="row columns">
+      <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li class="disabled">Gene Splicing</li>
+          <li>
+            <span class="show-for-sr">Current: </span> Cloning
+          </li>
+        </ul>
+      </nav>
+    </div>-->
+    <div>
+    <div class="row">
+      <div class="medium-6 columns">
+        <h3>{{ product.title }}
+          {% if product.time_create.month >= now_month|add:-2 %}<span class="badge bg-success">NEW</span>{% endif %}
+        </h3>
+        <p></p>
+    <!--<img class="thumbnail" src="{{ product.image.url }}" width="400" height="300">
+        <div class="row small-up-4">
+          {% for image in images %}
+          <div class="column">
+            <img class="thumbnail" src="{{ image.image.url }}" width="300" height="225">
+          </div>
+          {% endfor %}
+          </div>
+        </div>
+    </div>-->
+          <!--<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
+              {% for image_ind in images %}
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ image_ind.pk }}" aria-label="Slide {{ image_ind.pk }}"></button>
+              &lt;!&ndash;<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>&ndash;&gt;
+              {% endfor %}
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{ product.image.url }}" class="d-block w-100" alt="..." width="100">
+              </div>
+              {% for image in images %}
+              <div class="carousel-item">
+                <img src="{{ image.image.url }}" class="d-block w-100" width="100" alt="...">
+              </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>-->
+        <div>
+          <img src="{{ product.image.url }}" class="selected" id="selected" width="600px" >
+        </div>
+        <div>
+          <img src="{{ product.image.url }}" class="notsel" id="activeclass" width="200px" onclick="changeimg(0)" >
+          {% for image in images %}
+          <img src="{{ image.image.url }}" class="notsel" width="200px" onclick="changeimg({{ image.pk }})" >
+          {% endfor %}
+        </div>
+    <div>
+    </div>
+    </div>
+    <div class="row">
+    </div>
+      <div class="medium-6 large-10 columns">
+        <h3>Информация</h3>
+        <p>{{ product.text|linebreaks }}</p>
+        <p>Материалы:
+          {% for mat in product.materials.all %}
+            {{ mat.name }},
+          {% endfor %}
+
+        </p>
+        <p>Сезон: {{ product.season }}</p>
+        <p>Бренд: {{ product.brand }}</p>
+        {% if product.male_type == 'women' %}
+        <p>Тип: Женский</p>
+        {% elif product.male_type == 'men' %}
+        <p>Тип: Мужской</p>
+        {% else %}
+        <p>Тип: Детский</p>
+        {% endif %}
+        <p>Категория: {{ product.category }}</p>
+        <h3>Заказать</h3>
+        <label>Размер
+        </label>
+        <form method="post" action="{% url 'add_to_cart' %}?p_slug={{ product.slug }}">
+          {% csrf_token %}
+            <input type="number" value="37" max="45" min="32" name="size" style="">
+          <br>
+          <label>Количество
+          </label>
+            <input type="number" value="1" min="1" name="amount">
+          <br>
+          <div class="row">
+            <div class="small-3 columns">
+              <button type="button" class="btn btn-danger">{{ product.sale }}% скидка</button>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="small-3 columns">
+              <h3>Всего:<span class="badge bg-success">{{ product.sale_price }} р</span> <br><br><button type="submit" class="btn btn-success">Добавить в корзину</button></h3>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+    <div class="column row">
+      <br>
+      <br>
+      <hr>
+      <ul class="tabs" data-tabs id="example-tabs">
+        <h3>May be you looking for these</h3>
+      </ul>
+      <div class="tabs-content" data-tabs-content="example-tabs">
+        <div class="tabs-panel is-active" id="panel1">
+          <div class="row medium-up-3 large-up-5">
+            {% for item in random_products %}
+            <div class="column">
+              <a href="{% url 'product' item.slug %}"><img class="thumbnail" src="{{ item.image.url }}"></a>
+
+              <h5>{{ item.title }} <small>{{ item.sale_price }}руб</small></h5>
+              <!--<p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam.</p>-->
+              <a href="{% url 'product' item.slug %}" class="button hollow tiny expanded">Перейти</a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

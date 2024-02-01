@@ -1,0 +1,76 @@
+{% extends 'product/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container marketing">
+<form method="post" action="{% url 'homepage' '-time_create' 40 %}">
+    {% csrf_token %}
+    <!--Naming-->
+    <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="fw-light">Фильтры</h3>
+      </div>
+    </div>
+  </section>
+
+    <!-- Male -->
+    <section class="py-5 text-top container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="fw-light">Пол</h3>
+      </div>
+    </div>
+        <div>
+            <input type="checkbox" name="men" value="men" class="form-check-input">
+            <label class="form-check-label">Мужские</label>
+        </div>
+        <div>
+            <input type="checkbox" name="women" value="women" class="form-check-input">
+            <label class="form-check-label">Женские</label>
+        </div>
+        <div>
+            <input type="checkbox" name="kids" value="child" class="form-check-input">
+            <label class="form-check-label">Детские</label>
+        </div>
+  </section>
+
+    <!-- Сизон -->
+    <section class="py-5 text-top container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="fw-light">Сезон</h3>
+      </div>
+    </div>
+        <div>
+            <input type="checkbox" name="summer" value="summer" class="form-check-input">
+            <label class="form-check-label">Летние</label>
+        </div>
+        <div>
+            <input type="checkbox" name="winter" value="winter" class="form-check-input">
+            <label class="form-check-label">Зимние</label>
+        </div>
+        <div>
+            <input type="checkbox" name="demiseason" value="demiseason" class="form-check-input">
+            <label class="form-check-label">Демисезон</label>
+        </div>
+  </section>
+
+    <!--Cena ot do-->
+    <div>
+        <label class="form-number-label">Начальная цена</label>
+        <input type="number" name="price_ot" value="90" min="89" max="40000">
+    </div>
+    <div>
+        <label class="form-number-label">Конечная цена</label>
+        <input type="number" name="price_do" value="39999" min="89" max="40000">
+    </div>
+
+    <button type="submit" class="btn btn-success"> Посмотреть </button>
+    <a class="btn btn-danger" href="{% url 'filters' %}"> Сбросить </a>
+    </form>
+</div>
+
+{% endblock %}

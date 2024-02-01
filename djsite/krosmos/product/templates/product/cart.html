@@ -1,0 +1,78 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container my-5">
+  <ul>
+
+  <nav aria-label="breadcrumb">
+    <div>
+      <h2>Ваша корзина</h2>
+        <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+        <div>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Фото</th>
+            <th scope="col">Название</th>
+            <th scope="col">Размер</th>
+            <th scope="col">Кол-во</th>
+            <th scope="col">Скидка</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Перейти</th>
+            <th scope="col">Удалить</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for item in cart %}
+            <tr>
+              <td>
+                <div>
+                  <img src="{{ item.image.url }}" width="100">
+                </div>
+              </td>
+              <td>{{ item.title }}</td>
+              <td>{{ item.size }}</td>
+              <td>{{ item.amount }}</td>
+              <td>
+                {% if item.sale > 0 %}
+                <button class="btn btn-success">
+                        {{ item.sale }}
+                </button>
+                {% else %}
+                <button class="btn btn-secondary">
+                        {{ item.sale }}
+                </button>
+                {% endif %}
+              </td>
+              <td>{{ item.price }}</td>
+              <td><a href="{% url 'product' item.slug %}" class="btn btn-primary">Перейти</a></td>
+              <td><a href="{% url 'remove_from_cart' %}?slug={{ item.slug }}&size={{ item.size }}" class="btn btn-danger">Удалить</a></td>
+            </tr>
+          {% endfor %}
+
+          </tbody>
+        </table></div>
+        </div>
+          <h3>Обшая цена: <a class="btn btn-success">{{ total_price }} р</a></h3>
+          Вы можете <a href="{% url 'remove_from_cart' %}?slug=Delete_all" class="btn btn-danger">Очистить корзину</a>.
+        </div>
+      <hr>
+      <br>
+      <br>
+      <form method="post" action="{% url 'order' %}?slug=Delete_all">
+        {% csrf_token %}
+        Укажите точный адресс:
+        <input class="form-control" type="text" name="address" aria-label="Адресс доставки"></input>
+        <br>
+        Укажите свой номер телефона:
+        <input name="phone" type="number" class="form-control is-valid" id="validationServer01">
+        <br>
+        <button type="submit" class="btn btn-success">Заказать</button>
+      </form>
+
+  </nav>
+
+  </ul>
+</div>
+{% endblock %}

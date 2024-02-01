@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #show {
+            display: block;
+        }
+        .select {
+            width: 100pt;
+            height: 100pt;
+            
+        }
+        .selectactive {
+            width: 210pt;
+            border: 3px solid dodgerblue;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="canchange">
+        <img src="file:///home/narzizoda/Music/0.png" alt="sory" id="show">
+    </div>
+    <img src="0.png" alt="" class="select" id="activeclass" onclick="change(0)">
+    <img src="1.jpg" alt="" class="select" onclick="change(1)">
+    <img src="2.png" alt="" class="select" onclick="change(2)">
+
+    <!-- js -->
+    <script>
+        const img = document.getElementById('show');
+        let src = img.src;
+        console.info(src);
+
+        let crx = img.getAttribute('src');
+        console.log(crx);
+
+        let seletcts = document.getElementsByClassName("select");
+        let select_srcs = []
+        // let active = document.getElementsByClassName("selectactive");
+
+        for (let i = 0; i < seletcts.length; i++){
+            const imgi = seletcts[i];
+            let srcs = imgi.src;
+            select_srcs[i] = srcs;
+            console.log(srcs);
+        }
+    
+        function change(val){
+            let old_active = document.getElementById("activeclass")
+            old_active.id = ""
+            img.src = select_srcs[val]
+            seletcts[val].id = "activeclass"
+
+        }
+    </script>
+</body>
+</html>
